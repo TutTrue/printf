@@ -33,6 +33,7 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == fun[j].ch)
 				{
 					len += fun[j].f(ap);
+					va_arg(ap, int);
 					i += 2;
 					break;
 				}
