@@ -8,7 +8,7 @@
 
 /**
  * struct format - Struct for format
- * @specifiers: Struct format
+ * @ch: Struct format
  * @f: The function associated
  */
 
@@ -22,7 +22,7 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);
 int print_mod(va_list ap);
-int print_digit(va_list ap);
+int print_int(va_list ap);
 int print_string(va_list ap);
 
 #endif
