@@ -2,7 +2,7 @@
 
 /**
  * print_char - print input as char
- * @ap - pointer
+ * @ap:pointer
  * Return:len of char
  */
 int print_char(va_list ap)
