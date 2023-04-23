@@ -9,15 +9,13 @@ int _printf(const char *format, ...)
 {
 	int j, i = 0, len = 0;
 
-	format_t fun[] = {{'c', print_char}, {'s', print_string},
-		{'%', print_mod}, {'i', print_digit},
-		{'d', print_digit}
+	format_t fun[] = {{'c', print_char}
 	};
 
 	va_list ap;
 	va_start(ap, format);
 
-	if ((!format) || format[0] == '%' || !format[1])
+	if ((!format) || (format[0] == '%' && !format[1]))
 		return (-1);
 
 	while (format[i])
@@ -25,9 +23,9 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			j = 0;
-			while (j < 5)
+			while (j < 1)
 			{
-				if (format[i + 1] == fun[j].id)
+				if (format[i + 1] == fun[j].ch)
 				{
 					len += fun[j].f(ap);
 					i += 2;

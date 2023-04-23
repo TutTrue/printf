@@ -7,6 +7,6 @@
  */
 int print_char(va_list ap)
 {
-	_putchar(va_arg(ap, char));
+	_putchar(va_arg(ap, int));
 	return (1);
 }
