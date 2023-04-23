@@ -37,6 +37,10 @@ int _printf(const char *format, ...)
 				j++;
 			}
 		}
+		else if (format[i] == '\\' && format[i + 1] == 'n')
+		{
+			_putchar('\n');
+		}
 		else
 		{
 			_putchar(format[i]);

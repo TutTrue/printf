@@ -7,32 +7,43 @@
  */
 int print_int(va_list ap)
 {
-	int i;
+	int digit, n, ncpy, remainder, i = 0, len = 0, isNeg = 0, reverse = 0;
 
-	int reverse = 0, remainder, len = 0;
-	int flag = 0;
-
-	int n = va_arg(ap, int);
-
+	n = va_arg(ap, int);
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	if (n < 0)
 	{
-		n *= -1;
 		_putchar('-');
-		flag = 1;
+		n *= -1;
+		isNeg = 1;
+	}
+	ncpy = n;
+
+	while (ncpy > 0)
+	{
+		ncpy /= 10;
+		len++;
 	}
 	while (n != 0)
 	{
 		remainder = n % 10;
 		reverse = reverse * 10 + remainder;
 		n /= 10;
-		len++;
 	}
-	for (i = 0; i < len - 1; i++)
+	while (reverse > 0)
 	{
-		putchar((reverse % 10) + '0');
+		digit = reverse % 10;
+		_putchar (digit + '0');
 		reverse /= 10;
+		i++;
 	}
-	if (flag == 1)
+	while (i++ < len)
+		_putchar('0');
+	if (isNeg)
 		len++;
 	return (len);
 }
