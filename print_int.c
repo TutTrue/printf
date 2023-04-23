@@ -10,6 +10,7 @@ int print_int(va_list ap)
 	int i;
 
 	int reverse = 0, remainder, len = 0;
+	bool isNeg = false
 
 	int n = va_arg(ap, int);
 
@@ -17,6 +18,7 @@ int print_int(va_list ap)
 	{
 		n *= -1;
 		_putchar('-');
+		isNeg = true;
 	}
 	while (n != 0)
 	{
@@ -25,10 +27,12 @@ int print_int(va_list ap)
 		n /= 10;
 		len++;
 	}
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len - 1; i++)
 	{
 		putchar((reverse % 10) + '0');
 		reverse /= 10;
 	}
+	if (isNeg)
+		len++;
 	return (len);
 }
