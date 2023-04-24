@@ -26,6 +26,22 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
+			if (format [i + 1] == '+' || format[i + 1] == ' ')
+			{
+				_putchar(format[i + 1]);
+				i++;
+				len++;
+			}
+			else if (format[i + 1] == '#')
+			{
+				if (format[i + 2] == 'x' || format[i + 2] == 'X' ||
+					format[i + 2] == 'o' || format[i + 2] == 'f')
+				{
+					_putchar('0');
+					len++;
+					i++;
+				}
+			}
 			j = 0;
 			while (j < 5)
 			{
