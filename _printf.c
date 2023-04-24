@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 
 	format_t fun[] = {{'c', print_char}, {'s', print_string},
 		{'%', print_mod}, {'i', print_int},
-		{'d', print_int}
+		{'d', print_int}, {'0', NULL}
 	};
 
 	va_start(ap, format);
@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (-1);
-			if (format [i + 1] == '+' || format[i + 1] == ' ')
+			if (format[i + 1] == '+' || format[i + 1] == ' ')
 			{
 				_putchar(format[i + 1]);
 				i++;
@@ -43,8 +43,15 @@ int _printf(const char *format, ...)
 				}
 			}
 			j = 0;
-			while (j < 5)
+			while (j < 6)
 			{
+				if (fun[j].ch == '0')
+				{
+					_putchar('%');
+					len++;
+					i++;
+					break;
+				}
 				if (format[i + 1] == fun[j].ch)
 				{
 					len += fun[j].f(ap);
