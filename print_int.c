@@ -10,7 +10,7 @@ int print_int(va_list ap)
 	int digit, n, ncpy, remainder, i = 0, len = 0, isNeg = 0, reverse = 0;
 
 	n = va_arg(ap, int);
-	if (n == 0)
+	if (n == 0 || n = NULL)
 	{
 		_putchar('0');
 		return (1);
