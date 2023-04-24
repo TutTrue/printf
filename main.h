@@ -19,6 +19,10 @@ typedef struct format
 	int (*f)(va_list);
 } format_t;
 
+int print_unsigned(va_list ap);
+int print_octal(va_list ap);
+int print_hex(va_list ap);
+int print_Hex(va_list ap);
 int reverse_string(va_list ap);
 int len_int(int ap);
 int _printf(const char *format, ...);

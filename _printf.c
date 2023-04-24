@@ -12,7 +12,9 @@ int _printf(const char *format, ...)
 
 	format_t fun[] = {{'c', print_char}, {'s', print_string},
 		{'%', print_mod}, {'i', print_int},
-		{'d', print_int}, {'r', reverse_string}
+		{'d', print_int}, {'r', reverse_string},
+		{'x', print_hex}, {'X', print_Hex},
+		{'o', print_octal}, {'u', print_unsigned}
 	};
 
 	va_start(ap, format);
@@ -43,7 +45,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			j = 0;
-			while (j < 6)
+			while (j < 10)
 			{
 				if (format[i + 1] == fun[j].ch)
 				{

@@ -21,7 +21,7 @@ int reverse_string(va_list ap)
 			_putchar(str[i]);
 		return (0);
 	}
-	while(*str)
+	while (*str)
 	{
 		len++;
 		str++;
