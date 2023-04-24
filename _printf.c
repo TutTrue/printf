@@ -25,15 +25,15 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format [i + 1] == '\0')
-				return (-1);
+			/*if (format [i + 1] == '\0')
+				return (-1);*/
 			j = 0;
 			while (j < 5)
 			{
 				if (format[i + 1] == fun[j].ch)
 				{
 					len += fun[j].f(ap);
-					if (format[i + 1] == 's')
+					/*if (format[i + 1] == 's')
 						va_arg(ap, char *);
 					else if (format[i + 1] == '%')
 					{
@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
 						break;
 					}
 					else
-						va_arg(ap, int);
+						va_arg(ap, int);*/
 					i += 2;
 					break;
 				}
