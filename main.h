@@ -20,6 +20,7 @@ typedef struct format
 } format_t;
 
 int reverse_string(va_list ap);
+int len_int(int ap);
 int _printf(const char *format, ...);
 int _putchar(char c);
 int print_char(va_list ap);
