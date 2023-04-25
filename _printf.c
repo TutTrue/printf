@@ -83,7 +83,7 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
-			if (j == 11)
+			if (j == 12)
 			{
 				_putchar('%');
 				_putchar(format[i + 1]);
