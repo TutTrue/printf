@@ -1,5 +1,35 @@
 #include "main.h"
 
+int handle_hash(char c, int *i);
+/**
+ * handle_plus_space - handle plus and spaces after % sign
+ * @c: the char after %
+ * @num: number that will be printed after
+ * Return: len of printed char
+ */
+int handle_plus_space(char c, int num)
+{
+	int len = 0;
+
+	if (c == '+')
+	{
+		int check_isNeg;
+
+		check_isNeg = num > 0 ? 0 : 1;
+		if (!check_isNeg)
+		{
+			_putchar('+');
+			len++;
+		}
+	}
+	else
+	{
+		_putchar(' ');
+		len++;
+	}
+	return (len);
+}
+
 /**
  * _printf - print f function
  * @format: the string will be printed
@@ -31,41 +61,15 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (format[i + 1] == '+' || format[i + 1] == ' ')
 			{
-				if (format[i + 1] == '+')
-				{
-					va_list dest;
-					int check_isNeg;
+				va_list dest;
 
-					va_copy(dest, ap);
-					check_isNeg = va_arg(dest, int) > 0 ? 0 : 1;
-					if (!check_isNeg)
-					{
-						_putchar(format[i + 1]);
-						len++;
-					}
-				}
-				else
-				{
-					_putchar(' ');
-					len++;
-				}
+				va_copy(dest, ap);
+				len += handle_plus_space(format[i + 1], va_arg(dest, int));
 				i++;
 			}
 			else if (format[i + 1] == '#')
 			{
-				if (format[i + 2] == 'x' || format[i + 2] == 'X')
-				{
-					_putchar('0');
-					_putchar('x');
-					len += 2;
-					i++;
-				}
-				else if (format[i + 2] == 'o')
-				{
-					_putchar('0');
-					len++;
-					i++;
-				}
+				len += handle_hash(format[i + 2], &i);
 			}
 			j = 0;
 			while (j < 12)
@@ -88,5 +92,30 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
+	return (len);
+}
+/**
+ * handle_hash - handle after the hash sign
+ * @c: the char after # sign
+ * @i: pointer to current char of @format
+ * Return: len of printed char
+ */
+int handle_hash(char c, int *i)
+{
+	int len = 0;
+
+	if (c == 'x' || c == 'X')
+	{
+		_putchar('0');
+		_putchar('x');
+		len += 2;
+		(*i)++;
+	}
+	else if (c == 'o')
+	{
+		_putchar('0');
+		len++;
+		(*i)++;
+	}
 	return (len);
 }
