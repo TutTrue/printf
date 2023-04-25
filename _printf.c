@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 		{'d', print_int}, {'r', reverse_string},
 		{'x', print_hex}, {'X', print_Hex},
 		{'o', print_octal}, {'u', print_unsigned},
-		{'b', print_binary}
+		{'b', print_binary}, {'p', print_address}
 	};
 
 	va_start(ap, format);
@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 				}
 			}
 			j = 0;
-			while (j < 11)
+			while (j < 12)
 			{
 				if (format[i + 1] == fun[j].ch)
 				{

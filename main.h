@@ -19,6 +19,8 @@ typedef struct format
 	int (*f)(va_list);
 } format_t;
 
+int print_hex_ptr(va_list ap);
+int print_address(va_list ap);
 int print_binary(va_list ap);
 int print_unsigned(va_list ap);
 int print_octal(va_list ap);
