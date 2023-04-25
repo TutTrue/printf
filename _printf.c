@@ -85,8 +85,8 @@ int _printf(const char *format, ...)
 			if (j == 11)
 			{
 				_putchar('%');
-				_putchar('foramt[i + 1]');
-				len + = 2;
+				_putchar(format[i + 1]);
+				len += 2;
 				i += 2;
 			}
 		}
