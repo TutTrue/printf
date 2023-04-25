@@ -82,6 +82,13 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
+			if (j == 11)
+			{
+				_putchar('%');
+				_putchar('foramt[i + 1]');
+				len + = 2;
+				i += 2;
+			}
 		}
 		else
 		{
