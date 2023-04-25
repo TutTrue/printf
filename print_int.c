@@ -8,8 +8,21 @@
 int print_int(va_list ap)
 {
 	int digit, n, ncpy, remainder, i = 0, len = 0, isNeg = 0, reverse = 0;
+	char *my_int_min;
 
 	n = va_arg(ap, int);
+	if (n == INT_MIN)
+	{
+		my_int_min = "-2147483648";
+		while (*my_int_min)
+		{
+			_putchar(*my_int_min);
+			len++;
+			my_int_min++;
+		}
+		return (len);
+	}
+
 	if (n == 0)
 	{
 		_putchar('0');
