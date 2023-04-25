@@ -6,15 +6,12 @@
  * @len_ptr:len
  * Return:void
  */
-void print_binary_help(int num, int *len_ptr)
+void print_binary_help(unsigned int num, int *len_ptr)
 {
-	unsigned int rem;
-
 	if (num <= 0)
 		return;
-	rem = num % 2;
 	print_binary_help(num / 2, len_ptr);
-	_putchar(rem + '0');
+	_putchar((num % 2) + '0');
 	(void)(*len_ptr)++;
 }
 
@@ -29,9 +26,9 @@ int print_binary(va_list ap)
 	int len = 0;
 
 	num = va_arg(ap, unsigned int);
-	if (num == 0)
+	if (num == 0 || num == 1)
 	{
-		_putchar('0');
+		_putchar('0' + num);
 		return (1);
 	}
 	print_binary_help(num, &len);
