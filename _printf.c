@@ -45,7 +45,8 @@ int _printf(const char *format, ...)
 		{'d', print_int}, {'r', reverse_string},
 		{'x', print_hex}, {'X', print_Hex},
 		{'o', print_octal}, {'u', print_unsigned},
-		{'b', print_binary}, {'p', print_address}
+		{'b', print_binary}, {'p', print_address},
+		{'S', print_ex_str}
 	};
 
 	va_start(ap, format);
@@ -72,7 +73,7 @@ int _printf(const char *format, ...)
 				len += handle_hash(format[i + 2], &i);
 			}
 			j = 0;
-			while (j < 12)
+			while (j < 13)
 			{
 				if (format[i + 1] == fun[j].ch)
 				{
@@ -81,13 +82,6 @@ int _printf(const char *format, ...)
 					break;
 				}
 				j++;
-			}
-			if (j == 11)
-			{
-				_putchar('%');
-				_putchar(format[i + 1]);
-				len += 2;
-				i += 2;
 			}
 		}
 		else
@@ -123,6 +117,6 @@ int handle_hash(char c, int *i)
 		_putchar('0');
 		len++;
 		(*i)++;
-	}
-	return (len);
+	{
+		return (len);
 }
