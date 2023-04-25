@@ -31,14 +31,36 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (format[i + 1] == '+' || format[i + 1] == ' ')
 			{
-				_putchar(format[i + 1]);
+				if (format[i + 1] == '+')
+				{
+					va_list dest;
+					int check_isNeg;
+
+					va_copy(dest, ap);
+					check_isNeg = va_arg(dest, int) > 0 ? 0 : 1;
+					if (!check_isNeg)
+					{
+						_putchar(format[i + 1]);
+						len++;
+					}
+				}
+				else
+				{
+					_putchar(' ');
+					len++;
+				}
 				i++;
-				len++;
 			}
 			else if (format[i + 1] == '#')
 			{
-				if (format[i + 2] == 'x' || format[i + 2] == 'X' ||
-					format[i + 2] == 'o' || format[i + 2] == 'f')
+				if (format[i + 2] == 'x' || format[i + 2] == 'X')
+				{
+					_putchar('0');
+					_putchar('x');
+					len += 2;
+					i++;
+				}
+				else if (format[i + 2] == 'o')
 				{
 					_putchar('0');
 					len++;
