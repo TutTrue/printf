@@ -117,6 +117,6 @@ int handle_hash(char c, int *i)
 		_putchar('0');
 		len++;
 		(*i)++;
-	{
-		return (len);
+	}
+	return (len);
 }
