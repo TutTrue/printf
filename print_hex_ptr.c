@@ -31,14 +31,11 @@ void print_hexadecimal_ptr(unsigned long int num, int *p)
 int print_hex_ptr(va_list ap)
 {
 	unsigned long int n;
-	int p = 0;
+	void *ptr;
+	int len = 0;
 
-	n = va_arg(ap, unsigned long int);
-	if (n == 0)
-	{
-		_putchar('0');
-		return (1);
-	}
-	print_hexadecimal_ptr(n, &p);
-	return (p);
+	ptr = va_arg(ap, void *);
+	n = (unsigned long int)ptr;
+	print_hexadecimal_ptr(n, &len);
+	return (len);
 }
