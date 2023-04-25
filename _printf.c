@@ -73,7 +73,7 @@ int _printf(const char *format, ...)
 				len += handle_hash(format[i + 2], &i);
 			}
 			j = 0;
-			while (j < 12)
+			while (j < 13)
 			{
 				if (format[i + 1] == fun[j].ch)
 				{

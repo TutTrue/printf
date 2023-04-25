@@ -16,7 +16,7 @@ int print_ex_str(va_list ap)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] < 32 || str[i] >= 127 || str[i] > 0)
+		if (str[i] < 32 || str[i] >= 127)
 		{
 			_putchar('\\');
 			_putchar('x');
@@ -27,7 +27,7 @@ int print_ex_str(va_list ap)
 				_putchar('0');
 				len++;
 			}
-			print_Hexadecimal((unsigned int)check, &len);
+			print_Hexadecimal(check, &len);
 		}
 		else
 		{
