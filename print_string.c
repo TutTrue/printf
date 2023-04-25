@@ -16,7 +16,7 @@ int print_string(va_list ap)
 	len = 0;
 	while (*ch != '\0')
 	{
-		_putchar(*ch);
+		_putchar((unsigned char) *ch);
 		ch++;
 		len++;
 	}
