@@ -3,14 +3,19 @@
 /**
  * print_binary_help - recrertion fun convert dec to bin
  * @num: number
+ * @len_ptr:len
  * Return:void
  */
 void print_binary_help(int num, int *len_ptr)
 {
 	unsigned int rem;
 
-	if (num == 0)
+	if (num <= 0)
+	{
+		_putchar('0');
+		(void)(*len_ptr)++;
 		return;
+	}
 	rem = num % 2;
 	print_binary_help(num / 2, len_ptr);
 	_putchar(rem + '0');
