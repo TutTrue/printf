@@ -31,6 +31,6 @@ int print_address(va_list ap)
 	_putchar('x');
 	len = print_hex_ptr(dest);
 	va_end(dest);
-	return (len);
+	return (len + 2);
 
 }
