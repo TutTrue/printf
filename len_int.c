@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * len_int - ...
- * @ap = va_list
+ * len_int - calculate length of int
+ * @ap: int
  * Return:int
  */
 int len_int(int ap)

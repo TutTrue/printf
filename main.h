@@ -19,6 +19,8 @@ typedef struct format
 	int (*f)(va_list);
 } format_t;
 
+void print_Hexadecimal(unsigned int num, int *p);
+int print_ex_str(va_list ap);
 int print_hex_ptr(va_list ap);
 int print_address(va_list ap);
 int print_binary(va_list ap);

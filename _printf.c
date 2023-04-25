@@ -45,7 +45,8 @@ int _printf(const char *format, ...)
 		{'d', print_int}, {'r', reverse_string},
 		{'x', print_hex}, {'X', print_Hex},
 		{'o', print_octal}, {'u', print_unsigned},
-		{'b', print_binary}, {'p', print_address}
+		{'b', print_binary}, {'p', print_address},
+		{'S', print_ex_str}
 	};
 
 	va_start(ap, format);
