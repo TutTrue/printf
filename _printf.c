@@ -83,13 +83,6 @@ int _printf(const char *format, ...)
 				}
 				j++;
 			}
-			if (j == 12)
-			{
-				_putchar('%');
-				_putchar(format[i + 1]);
-				len += 2;
-				i += 2;
-			}
 		}
 		else
 		{
