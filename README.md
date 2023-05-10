@@ -6,7 +6,7 @@ This is a custom implementation of the `printf()` function in C. The implementat
 ## Group Members
 
 - [Mahmoud Hamdy](https://github.com/TutTrue).
-- [Mohamed Elshafaey](https://github.com/MohamedElshafae)
+- [Mohamed Elshafae](https://github.com/MohamedElshafae)
 
 ## Usage
 
